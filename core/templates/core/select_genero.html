@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seleciona los generos que sean de tu agrado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'core/css/select_genero.css' %}">
+</head>
+<body>
+    
+    <header>
+        <div class="col-md-12">
+            <img class="center-block" id="main_logo" src="{% static 'core/img/logo.png' %}" alt="Netflix Logo">
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>"Nombre" elige los generos que más disfrutes ver</h2>
+        <div class="separator"></div>
+
+        <div class="row" >
+            <div class="col-sm-4" align="center">
+                <label>STAND UP<input type="checkbox" name="standup_genero" id="checkbox" value="stand_up"><span><img class="standup_genero"
+                            src="{% static 'core/img/stand-up-comedy-neon-sign.jpeg' %}"></img></span></label>
+                <label>ACTION<input type="checkbox" name="action_genero" id="checkbox" value="action"><span><img class="action_genero"
+                            src="{% static 'core/img/action_genero.jpg' %}"></img></span></label>
+                <label>SUPER HEROES<input type="checkbox" name="superheroes_genero" id="checkbox" value="superheroes"><span><img class="superheroes_genero"
+                            src="{% static 'core/img/superheroes_genero.jpeg' %}"></img></span></label>
+            </div>
+        </div>
+        
+        <div class="row" >
+            <div class="col-sm-4" align="center">
+                <label>SUSPENSO<input type="checkbox" name="suspenso_genero" id="checkbox" value="suspenso"><span><img class="suspenso_genero"
+                            src="{% static 'core/img/suspenso_genero.jpeg' %}"></img></span></label>
+                <label>KDRAMA<input type="checkbox" name="kdrama_genero" id="checkbox" value="kdrama"><span><img class="kdrama_genero"
+                            src="{% static 'core/img/k_drama_genero.jpeg' %}"></img></span></label>
+                <label>MUSICALES<input type="checkbox" name="musicales_genero" id="checkbox" value="musicales"><span><img class="musicales_genero"
+                            src="{% static 'core/img/musical_genero.png' %}"></img></span></label>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="col-sm-4" align="center">
+                <label>HORROR<input type="checkbox" name="horror_genero" id="checkbox" value="horror"><span><img class="horror_genero"
+                            src="{% static 'core/img/horror_genero.jpeg' %}"></img></span></label>
+                <label>ANIME<input type="checkbox" name="anime_genero" id="checkbox" value="anime"><span><img class="anime_genero"
+                            src="{% static 'core/img/anime_genero.jpeg' %}"></img></span></label>
+                <label>ANIMADO<input type="checkbox" name="animado_genero" id="checkbox" value="animado"><span><img class="animado_genero"
+                            src="{% static 'core/img/animado_genero.jpeg' %}"></img></span></label>
+            </div>
+        </div>
+
+
+        <div class="col-md-12 text-center">
+            <button type="button" id="boton_continuar" class="btn btn-secondary btn-lg">F I N A L I Z AR</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+body {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* ****** Menu Nav ****** */
+
+#main_logo {
+  width: 50%;
+  max-width: 400px;
+  min-width: 100px;
+  margin: 0 auto;
+  /* border: 1px solid magenta; */
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-3 {
+  /* border: 1px solid magenta;   */
+  justify-content: space-around;  
+}
+
+.row {
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.row .col-3 ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* border: 1px solid magenta; */
+}
+
+.row .col-3 li {
+  float:left;
+}
+
+.row .col-3 li a {
+  display: block;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  padding: 14px;
+  text-decoration: none;
+  /* border: 1px solid magenta; */
+}
+
+/* Change the link color to #111 (black) on hover */
+.row .col-3 li a:hover {
+  background-color: #111;
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+.row .col-3 li a:hover:not(.active) {
+  background-color: #e50914ce;
+  text-decoration: none;
+  color: black;
+  
+}
+
+.row .col-3 li a:active {
+border-bottom: 3px solid white;
+}
+
+
+/* ****** Carousel ****** */
+
+.carousel {
+  position: relative;
+  height: 600px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.carousel__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel__track-container {
+  background: lightseagreen;
+  height: 88%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.carousel__track {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 100%;
+  transition: transform 350ms ease-out;
+}
+
+.carousel__slide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.carousel__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-110%);
+  background: transparent;
+  border: 0;
+}
+
+.carousel__button--left {
+  left: -65px;
+}
+
+.carousel__button--right {
+  right: -65px;
+}
+
+.fa-3x {
+  color: rgb(238, 238, 238);
+}
+
+.carousel__button {
+  width: 45px;
+}
+
+.carousel__nav {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.carousel__indicator {
+  border: 0;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: rgba(255, 255, 255, 0.199);
+  margin: 0 12px;
+  cursor: pointer;
+}
+
+.carousel__indicator.current-slide {
+  background-color: rgba(214, 214, 214, 0.925);
+}
+
+.is-hidden { display: none;}

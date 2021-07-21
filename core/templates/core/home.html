@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/95bdff4ff9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'core/css/home_styles.css' %}">
+</head>
+<body>
+
+    <!-- Menu de Navegacion nav -->
+    <div class="row">
+        <div class="logo_container col-3">
+            <img class="center-block" id="main_logo" src="{% static 'core/img/logo.png' %}" alt="Netflix Logo">
+        </div>
+
+        <div class="col-3 d-flex justify-content-center align-self-center">
+            <ul id="nav-lists">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Cambiar Perfil</a></li>
+            </ul>
+        </div>
+    </div>
+
+<!-- Creamos el div que contiene el carousel -->
+    <div class="carousel">
+        <button class="carousel__button carousel__button--left is-hidden">
+            <i class="fas fa-angle-left fa-3x"></i> <!-- Boton izquierda para movernos en el carousel -->
+        </button> 
+        <div class="carousel__track-container">
+            <ul class="carousel__track">
+                <li class="carousel__slide current-slide">
+                    <img class="carousel__image" src="{% static 'core/img/anime_genero.jpeg' %}" alt="">
+                </li>
+                <li class="carousel__slide">
+                    <img class="carousel__image" src="{% static 'core/img/action_genero.jpg' %}" alt="">
+                </li>
+                <li class="carousel__slide">
+                    <img class="carousel__image" src="{% static 'core/img/superheroes_genero.jpeg' %}" alt="">
+                </li>
+            </ul>
+        </div>
+        <button class="carousel__button carousel__button--right">
+            <i class="fas fa-angle-right fa-3x"></i> <!-- Boton derecha para movernos en el carousel -->
+        </button>
+
+        <div class="carousel__nav"> <!-- Indicadores circulares del carousel -->
+            <button class="carousel__indicator current-slide"></button>
+            <button class="carousel__indicator"></button>
+            <button class="carousel__indicator"></button>
+        </div>
+    </div>
+
+    <script src="{% static 'js/carousel.js' %}"></script>
+    
+</body>
+</html>

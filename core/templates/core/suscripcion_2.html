@@ -1,0 +1,166 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paso 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/95bdff4ff9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'core/css/suspcripcion_2.css' %}">
+</head>
+<body>
+
+    <header>
+        <div class="col-md-12">
+            <img class="center-block" id="main_logo" src="{% static 'core/img/logo.png' %}" alt="Netflix Logo">
+        </div>
+    </header>
+
+        <div class="container">
+            <h1 class="subtitle">Estas a pocos pasos de terminar tu suscripcion!</h2>
+
+            <form id="step_two" class="paso_dos">
+                <h3 class="subtitle">Dinos tu Ubicacion</h3>
+
+                <div class="justify-content-around input_container">
+                    <input type="text" name="pais" id="pais" placeholder="Pais">
+                    <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad">
+                </div>
+
+
+                <h3>Tenemos el plan ideal para ti</h3>
+                <div class="box_container">
+
+                    <p class="box_info1">GOLD</p>
+                    <p class="box_info2">PREMIUM</p>
+                    <p class="box_info3">VIP</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 col-md-3" id="column_left">
+                        <p class="row1">Precio mensual</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p id="monto">$8.99</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p id="monto">$12.99</p>
+                    </div>
+                    <div class="col-6 col-md-3" id="column_right">
+                        <p id="monto">$15.99</p>
+                    </div>
+                </div>
+                <div class="separator"></div>
+
+                <div class="row">
+                    <div class="col-6 col-md-3" id="column_left">
+                        <p class="row1">HD Disponible</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p><i class="fas fa-times fa-lg"></i></p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p><i class="fas fa-check fa-lg"></i></p>
+                    </div>
+                    <div class="col-6 col-md-3" id="column_right">
+                        <p><i class="fas fa-check fa-lg"></i></p>
+                    </div>
+                </div>
+                <div class="separator"></div>
+
+                <div class="row">
+                    <div class="col-6 col-md-3" id="column_left">
+                        <p class="row1">Ultra HD Disponible</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p><i class="fas fa-times fa-lg"></i></i></p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p><i class="fas fa-times fa-lg"></i></p>
+                    </div>
+                    <div class="col-6 col-md-3" id="column_right">
+                        <p><i class="fas fa-check fa-lg"></i></p>
+                    </div>
+                </div>
+                <div class="separator"></div>
+
+                <div class="row">
+                    <div class="col-6 col-lg-3" id="column_left">
+                        <p class="row1">Peliculas ilimitadas</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p><i class="fas fa-times fa-lg"></i></p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p><i class="fas fa-check fa-lg"></i></p>
+                    </div>
+                    <div class="col-6 col-md-3" id="column_right">
+                        <p><i class="fas fa-check fa-lg"></i></p>
+                    </div>
+                </div>
+                <div class="separator"></div>
+
+                <div class="row">
+                    <div class="col-6 col-lg-3" id="column_left">
+                        <p class="row1 col-6-xl" id="cancelar_text">Cancela en cualquier momento</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p><i class="fas fa-check fa-lg"></i></i></p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p><i class="fas fa-check fa-lg"></i></p>
+                    </div>
+                    <div class="col-6 col-md-3" id="column_right">
+                        <p><i class="fas fa-check fa-lg"></i></p>
+                    </div>
+                </div>
+
+                <div class="separator"></div>
+                <div class="row">
+                    <div class="col-6 col-lg-3" id="column_left">
+                        <p class="row1">El primer mes gratis</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p><i class="fas fa-check fa-lg"></i></i></p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <p><i class="fas fa-check fa-lg"></i></p>
+                    </div>
+                    <div class="col-6 col-md-3" id="column_right">
+                        <p><i class="fas fa-check fa-lg"></i></p>
+                    </div>
+                </div>
+                <div class="separator"></div>
+
+                <h3 class="plan_subtitle">Seleciona el plan que deseas</h3>               
+
+                <div class="checkbox">
+                                     
+                    <label class="label_container">Gold
+                        <input type="radio" name="radio" checked="checked" value="Gold">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="label_container">Premium
+                        <input type="radio" name="radio" checked="checked" value="Premium">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="label_container">VIP
+                        <input type="radio" name="radio" checked="checked" value="VIP">
+                        <span class="checkmark"></span>
+                    </label>
+
+                
+                </div>
+                <div class="col-md-12 text-center">
+                    <button type="button" id="iniciar_membresia" class="btn btn-secondary btn-lg">INICIAR MEMBRESIA</button>
+                </div>
+            </form>
+        </div>
+    
+</body>
+</html>

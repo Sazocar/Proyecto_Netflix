@@ -1,0 +1,91 @@
+body {
+    background-color: black;
+    color: black;
+    font-size: 20px;
+    /* font-family: 'Roboto Condensed', sans-serif; */
+}
+
+#main_logo {
+    width: 25%;
+    min-width: 400px;
+    margin: 0 auto;
+    /* border: 2px solid magenta; */
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+.container {
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgb(185, 185, 185);
+    justify-content: center;
+    border-radius: 5px;
+    
+}
+
+h2 {
+    font-family: 'Arimo', sans-serif;
+    text-align: center;
+    font-size: 35px;
+}
+
+.separator {
+    width: 830px;
+    border: 1px solid rgb(119, 118, 119);
+    margin-top: 15px;
+}
+
+#checkbox {
+    display: none;
+}
+
+.container .row {
+    /* border: 1px solid magenta; */
+    margin: 25px;
+}
+
+.col-sm-4 {
+    display: flex;
+}
+
+.col-sm-4 span {
+    display: inline-block;
+    padding: 10px;
+    /* text-transform: uppercase; */
+    /* border: 2px solid #E50914; */
+    border-radius: 3px;
+    margin: 10px;
+}
+
+.col-sm-4 input[type="checkbox"]:checked + span {
+  background-color: #E50914;
+  color: black;
+}
+
+.row .col-sm-4 img {
+    width: 220px;
+    height: 300px;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 3px;
+    object-fit: cover;
+}
+
+
+#boton_continuar {
+    margin: 20px auto;
+    width: 280px;
+    height: 67px;
+    font-size: 30px;
+}
+
+.btn-secondary:hover {
+    background-color: red;
+    color: black;
+}
