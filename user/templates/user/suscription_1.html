@@ -3,35 +3,37 @@
 {% load static %}
 {% block extrahead %} <link rel="stylesheet" href="{% static 'core/css/suscripcion_1.css'%}"> {% endblock %}
 {% block content %}
-
-    
+            
     <div class="container">
-        <form id="step_one" class="suscripcion">
+        <form action="." method="POST" id="step_one" class="suscripcion">
+            {% csrf_token %}
             <h3 class="subtitle">Suscribete para que puedas disfrutar de Netflix!</h3>
             
                 <p><br></p>
                 <h5>Crea tu cuenta, solo debes escribir tu email, contraseña configurar tu tarjeta de credito y crear un usuario</h5>
                 
                 <div id="input" class="col-md-12 text-center">
-                    <input type="email" name="user_email" id="email" placeholder="Email">
-                    <input type="password" name="password" id="pass" placeholder="Contraseña">
+
+                    {{form.email}}
+                    {{form.password}}
 
                     <h3 class="config">Configura tu tarjeta de credito</h3>
 
-                        <input type="text" name="nro_tarjeta" id="nro_tarjeta" placeholder="Numero de Tarjeta"><br>
+                        {{form.credit_card}}
+                        {% comment %} 
                         <input type="text" name="fecha_vencimiento" id="f_vencimiento" placeholder="Fecha de Vencimiento (MM/AA)"><br>
-                        <input type="text" name="codigo_seguridad" id="codigo_seguridad" placeholder="Codigo de Seguridad">      <br>              
+                        <input type="text" name="codigo_seguridad" id="codigo_seguridad" placeholder="Codigo de Seguridad">      <br>               {% endcomment %}
 
                         <h3 class="config">Configura tu Usuario</h3>
 
-                        <input type="text" name="name" id="nombre" placeholder="Nombre">
-                        <input type="text" name="lastname" id="apellido" placeholder="Apellido">
+                        {{form.name}}
+                        {% comment %} <input type="text" name="lastname" id="apellido" placeholder="Apellido">
                         <input type="text" name="user_name" id="nombre_usuario" placeholder="Nombre de Usuario">
                         <input type="number" name="age" id="edad" placeholder="Edad">
-                        <input type="text" name="sex" id="sex" placeholder="Sexo M, F o N/A">
+                        <input type="text" name="sex" id="sex" placeholder="Sexo M, F o N/A"> {% endcomment %}
 
-                        <div class="col-md-12 text-center">
-                            <button type="button" id="boton_continuar" class="btn btn-secondary btn-lg">C O N T I N U A R</button>
+                        <div class="col-md-12 text-center"> 
+                            <button type="submit" id="boton_continuar" class="btn btn-secondary btn-lg">C O N T I N U A R</button>
                         </div>
                 </div>
         </form>
