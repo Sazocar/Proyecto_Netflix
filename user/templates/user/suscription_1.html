@@ -18,14 +18,16 @@
                     {{form.password}}
 
                     <h3 class="config">Configura tu tarjeta de credito</h3>
-
+                        {{form.credit_card.errors}}
                         {{form.credit_card}}
-                        {% comment %} 
-                        <input type="text" name="fecha_vencimiento" id="f_vencimiento" placeholder="Fecha de Vencimiento (MM/AA)"><br>
-                        <input type="text" name="codigo_seguridad" id="codigo_seguridad" placeholder="Codigo de Seguridad">      <br>               {% endcomment %}
+
+                        {% comment %} <input type="text" name="fecha_vencimiento" id="f_vencimiento" placeholder="Fecha de Vencimiento (MM/AA)"><br> {% endcomment %}
+                        {{form.safe_code.errors}}
+                        {{form.safe_code}}
 
                         <h3 class="config">Configura tu Usuario</h3>
 
+                        {{form.name.errors}}
                         {{form.name}}
                         {% comment %} <input type="text" name="lastname" id="apellido" placeholder="Apellido">
                         <input type="text" name="user_name" id="nombre_usuario" placeholder="Nombre de Usuario">
