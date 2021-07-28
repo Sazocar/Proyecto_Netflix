@@ -58,17 +58,17 @@ class Pais(models.Model):
         return self.nombre
 
 
-# class Ciudad(models.Model):
-#     id_ciudad = models.AutoField(primary_key=True)
-#     nombre = models.CharField(max_length=10)
-#     descripcion = models.CharField(max_length=50)
-#     id_pais = models.ForeignKey(
-#         'pais', on_delete=models.CASCADE, db_column='id_pais')
+class Ciudad(models.Model):
+    id_ciudad = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=10)
+    descripcion = models.CharField(max_length=50)
+    id_pais = models.ForeignKey(
+        'Pais', on_delete=models.CASCADE, db_column='id_pais')
 
-#     class Meta:
-#         db_table = 'ciudad'
-#         verbose_name_plural = 'ciudades'
-#         ordering = ['id_ciudad']
+    class Meta:
+        db_table = 'ciudad'
+        verbose_name_plural = 'ciudades'
+        ordering = ['id_ciudad']
 
-#     def __str__(self):
-#         return self.nombre
+    def __str__(self):
+        return self.nombre
