@@ -54,14 +54,14 @@ class Country(models.Model):
         ordering = ['name']
 
     def __str__(self):
-        return str(self.name)
+        return self.name
 
 
 class City(models.Model):
     id_city = models.AutoField(verbose_name="Id Ciudad", primary_key=True)
     name = models.CharField(verbose_name="Nombre", max_length=50, unique=True, null=False)
     description = models.TextField(verbose_name = "Descripción", null=False)
-    id_country = models.ForeignKey(Country, verbose_name="Id Pais", on_delete=models.CASCADE)
+    country = models.ForeignKey(Country, verbose_name="Pais", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "ciudad"
@@ -69,4 +69,16 @@ class City(models.Model):
         ordering = ['name']
 
     def __str__(self):
-        return str(self.name)
+        return self.name
+
+class Ubication(models.Model):
+    country = models.ForeignKey(Country, on_delete=models.SET_NULL, blank=True, null=True)
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, blank=True, null=True)
+
+    class Meta:
+        verbose_name = "ubicacion"
+        verbose_name_plural = "ubicaciones"
+        ordering = ['country']
+
+    def __str__(self):
+        return self.city

@@ -1,10 +1,47 @@
-from django.shortcuts import render, HttpResponseRedirect, redirect
-from user.forms import UserModelForm, CreditCardModelForm
-from .models import User, CreditCard
+from django.shortcuts import render, HttpResponseRedirect, redirect, get_object_or_404
+from user.forms import UserModelForm, CreditCardModelForm, UbicationModelForm
+from .models import User, CreditCard, Ubication, City, Country
+from django.http import JsonResponse
 
 # Create your views here.
-def suscription_2(request):
-    return render(request, "user/suscription_2.html")
+
+
+def ubication_create_view(request):
+    ubication_form = UbicationModelForm()
+    if request.method == 'POST':
+        ubication_form = UbicationModelForm(request.POST)
+        if ubication_form.is_valid():
+            ubication_form.save()
+            # return redirect('core/selectgenero')
+    return render(request, 'user/suscription_2.html', {'ubication_form': ubication_form})
+
+
+def ubication_update_view(request, pk):
+    ubication = get_object_or_404(Ubication, pk=pk)
+    ubication_form = UbicationModelForm(instance=ubication)
+    if request.method == 'POST':
+        ubication_form = UbicationModelForm(request.POST, instance=ubication)
+        if ubication_form.is_valid():
+            ubication_form.save()
+            return redirect('core/select-genero', pk=pk)
+    return render(request, 'core/select-genero', {'ubication_form': ubication_form})
+
+
+# AJAX
+def load_cities(request):
+    country_id = request.GET.get('country_id')
+    cities = City.objects.filter(country_id=country_id).all()
+    # print(list(cities.values('country_id', 'name')))
+    return render(request, 'user/city_dropdown_list_options.html', {'cities': cities})
+    # return JsonResponse(list(cities.values('country_id', 'name')), safe=False)
+
+# def suscription_2(request, *args, **kwargs):
+#     ubicacion_form = UserModelForm(request.POST or None)
+#     if request.method =="POST" and ubicacion_form.is_valid():
+#         data_user = ubicacion_form.cleaned_data
+#         Ubicacion.objects.create(**data_user)
+#         ubicacion_form = UserModelForm()
+#     return render(request, "user/suscription_2.html", {'ubicacion_form': ubicacion_form})
 
 
 def registration(request, *args, **kwargs):

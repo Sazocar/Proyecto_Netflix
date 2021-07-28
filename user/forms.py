@@ -1,5 +1,5 @@
 from django import forms
-from .models import User, CreditCard
+from .models import User, CreditCard, City, Country, Ubication
 from Netflix import settings
 from django.db import models
 
@@ -9,6 +9,7 @@ SEX_CHOICES = (
     ("F", "F"),
     ("N/A", "N/A")
 )
+
 
 class UserModelForm(forms.ModelForm):
     email = forms.EmailField(help_text='A valid email address, please.', required=True, widget=forms.EmailInput(
@@ -101,3 +102,26 @@ class CreditCardModelForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Código de seguridad solo puede tener números enteros. No se aceptan letras ni caracteres especiales")
         return data
+
+
+class UbicationModelForm(forms.ModelForm):
+    class Meta:
+        model = Ubication
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['city'].queryset = City.objects.none()
+
+        if 'country' in self.data:
+            try:
+                country_id = int(self.data.get('country'))
+                self.fields['city'].queryset = City.objects.filter(
+                    country_id=country_id).order_by('name')
+            except (ValueError, TypeError):
+                pass  # invalid input from the client; ignore and fallback to empty City queryset
+        elif self.instance.pk:
+            self.fields['city'].queryset = self.instance.country.city_set.order_by(
+                'name')
+
+    
