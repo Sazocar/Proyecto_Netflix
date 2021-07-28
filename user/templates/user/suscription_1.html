@@ -10,35 +10,57 @@
             <h3 class="subtitle">Suscribete para que puedas disfrutar de Netflix!</h3>
             
                 <p><br></p>
-                <h5>Crea tu cuenta, solo debes escribir tu email, contraseña configurar tu tarjeta de credito y crear un usuario</h5>
+                <h5>Crea tu cuenta, solo debes escribir tu email, contraseña, crear un usuario y configurar tu tarjeta de credito y </h5>
                 
                 <div id="input" class="col-md-12 text-center">
 
-                    {{form.email}}
-                    {{form.password}}
-
+                    {{user_form.email}}
+                    {{user_form.password}}
+                    
+                    <h3 class="config">Configura tu Usuario</h3>
+                        {% comment %} Nombre {% endcomment %}
+                        {{user_form.name.errors}}
+                        {{user_form.name}}
+                        <p></p>
+                        {% comment %} Apellido {% endcomment %}
+                        {{user_form.last_name.errors}}
+                        {{user_form.last_name}}
+                        <p></p>
+                        {% comment %} Nombre de Usuario {% endcomment %}
+                        {{user_form.user_name.errors}}
+                        {{user_form.user_name}}
+                        <p></p>
+                        {% comment %} Edad {% endcomment %}
+                        {{user_form.age.errors}}
+                        {{user_form.age}}
+                        <hr>
+                        {% comment %} Sexo {% endcomment %}
+                        <p>Sexo</p>
+                        {{user_form.sex.errors}} 
+                        {{user_form.sex}}
+                        
+        
                     <h3 class="config">Configura tu tarjeta de credito</h3>
-                        {{form.credit_card.errors}}
-                        {{form.credit_card}}
-
-                        {% comment %} <input type="text" name="fecha_vencimiento" id="f_vencimiento" placeholder="Fecha de Vencimiento (MM/AA)"><br> {% endcomment %}
-                        {{form.safe_code.errors}}
-                        {{form.safe_code}}
-
-                        <h3 class="config">Configura tu Usuario</h3>
-
-                        {{form.name.errors}}
-                        {{form.name}}
-                        {% comment %} <input type="text" name="lastname" id="apellido" placeholder="Apellido">
-                        <input type="text" name="user_name" id="nombre_usuario" placeholder="Nombre de Usuario">
-                        <input type="number" name="age" id="edad" placeholder="Edad">
-                        <input type="text" name="sex" id="sex" placeholder="Sexo M, F o N/A"> {% endcomment %}
-
+                        <p></p>
+                        {% comment %} Numero de tarjeta {% endcomment %}
+                        {{card_form.id_credit_card.errors}}
+                        {{card_form.id_credit_card}}
+                        <p></p>
+                        {% comment %} Fecha de Vencimiento {% endcomment %}
+                        {{card_form.credit_card_date.errors}}
+                        {{card_form.credit_card_date}}
+                        <p></p>
+                        {% comment %} Codigo de seguridad {% endcomment %}
+                        {{card_form.safe_code.errors}}
+                        {{card_form.safe_code}}
+                        <p></p>
+        </form>
+                        
+                        
                         <div class="col-md-12 text-center"> 
                             <button type="submit" id="boton_continuar" class="btn btn-secondary btn-lg">C O N T I N U A R</button>
                         </div>
                 </div>
-        </form>
 
         </div>
 {% endblock %}

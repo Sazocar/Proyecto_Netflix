@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'Netflix.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Netflix',
+        'NAME': 'Netflix2',
         'USER': 'postgres',
         'PASSWORD': '123',
         'HOST': 'localhost',
@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Caracas'
 
 USE_I18N = True
 
