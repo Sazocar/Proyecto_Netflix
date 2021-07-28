@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import *
+from .models import User, CreditCard, City, Country
 # Register your models here.
 
 class UserAdmin(admin.ModelAdmin):
@@ -10,15 +10,15 @@ class UserAdmin(admin.ModelAdmin):
 class CreditCardAdmin(admin.ModelAdmin):
     list_display = ('id_credit_card',)
     
-class CiudadAdmin(admin.ModelAdmin):
-    list_display = ('nombre',)
-    readonly_fields = ('id_ciudad',)
+class CityAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    readonly_fields = ('id_city',)
 
-class PaisAdmin(admin.ModelAdmin):
-    list_display = ('nombre',)
-    readonly_fields = ('id_pais',)
+class CountryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    readonly_fields = ('id_country',)
 
 admin.site.register(User, UserAdmin)
 admin.site.register(CreditCard, CreditCardAdmin)
-admin.site.register(Ciudad, CiudadAdmin)
-admin.site.register(Pais, PaisAdmin)
+admin.site.register(Country, CountryAdmin)
+admin.site.register(City, CityAdmin)

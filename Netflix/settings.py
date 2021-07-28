@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'Netflix.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Netflix2',
+        'NAME': 'netflix3',
         'USER': 'postgres',
         'PASSWORD': '123',
         'HOST': 'localhost',

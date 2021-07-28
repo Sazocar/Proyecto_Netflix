@@ -43,32 +43,30 @@ class CreditCard(models.Model):
         return str(self.id_credit_card)
 
 
-class Pais(models.Model):
-    id_pais = models.AutoField(primary_key=True)
-    nombre = models.CharField(unique=True, max_length=10)
-    descripcion = models.CharField(max_length=50)
+class Country(models.Model):
+    id_country = models.AutoField(verbose_name="Id Pais", primary_key=True)
+    name = models.CharField(verbose_name="Nombre", max_length=50, unique=True, null=False)
+    description = models.TextField(verbose_name = "Descripción", null=False)
 
     class Meta:
-        db_table = 'pais'
-        verbose_name_plural='paises'
-        ordering = ['id_pais']
-
+        verbose_name = "pais"
+        verbose_name_plural = "paises"
+        ordering = ['name']
 
     def __str__(self):
-        return self.nombre
+        return str(self.name)
 
 
-class Ciudad(models.Model):
-    id_ciudad = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=10)
-    descripcion = models.CharField(max_length=50)
-    id_pais = models.ForeignKey(
-        'Pais', on_delete=models.CASCADE, db_column='id_pais')
+class City(models.Model):
+    id_city = models.AutoField(verbose_name="Id Ciudad", primary_key=True)
+    name = models.CharField(verbose_name="Nombre", max_length=50, unique=True, null=False)
+    description = models.TextField(verbose_name = "Descripción", null=False)
+    id_country = models.ForeignKey(Country, verbose_name="Id Pais", on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'ciudad'
-        verbose_name_plural = 'ciudades'
-        ordering = ['id_ciudad']
+        verbose_name = "ciudad"
+        verbose_name_plural = "ciudades"
+        ordering = ['name']
 
     def __str__(self):
-        return self.nombre
+        return str(self.name)
