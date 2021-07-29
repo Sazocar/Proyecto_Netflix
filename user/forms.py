@@ -124,4 +124,3 @@ class UbicationModelForm(forms.ModelForm):
             self.fields['city'].queryset = self.instance.country.city_set.order_by(
                 'name')
 
-    

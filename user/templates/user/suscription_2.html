@@ -23,11 +23,13 @@
 
         <div class="container">
             <h1 class="subtitle">Estas a pocos pasos de terminar tu suscripcion!</h2>
-
+            <br>
             <form method="post" id="personForm" data-cities-url="{% url 'ajax_load_cities' %}">
-                {% csrf_token %}
-                {{ ubication_form.as_p }}
-                <input type="submit" value="Submit">
+                {% csrf_token %}    
+            {{ ubication_form.as_table }}
+            <div class="col-md-12 text-center">
+                    <button type="submit" id="iniciar_membresia" class="btn btn-secondary btn-lg">INICIAR MEMBRESIA</button>
+                </div>
             </form>
 
             <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -44,14 +46,12 @@
                         success: function (data) {   // `data` is the return of the `load_cities` view function
                             $("#id_city").html(data);  // replace the contents of the city input with the data that came from the server
                             /*
-
                             let html_data = '<option value="">---------</option>';
                             data.forEach(function (city) {
                                 html_data += `<option value="${city.id}">${city.name}</option>`
                             });
                             console.log(html_data);
                             $("#id_city").html(html_data);
-
                             */
                         }
                     });
@@ -184,10 +184,10 @@
                 
                 </div>
                 <div class="col-md-12 text-center">
-                    <button type="button" id="iniciar_membresia" class="btn btn-secondary btn-lg">INICIAR MEMBRESIA</button>
+                    <button type="submit" id="iniciar_membresia" class="btn btn-secondary btn-lg">INICIAR MEMBRESIA</button>
                 </div>
-            </form>
-        </div> {% endcomment %}
+            </form> {% endcomment %}
+        </div>
     
 </body>
 </html>

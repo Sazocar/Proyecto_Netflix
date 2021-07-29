@@ -20,7 +20,7 @@ from core import views
 urlpatterns = [
     path('', views.home, name="home"),
     path('contact/', views.contact, name="contact"),
-    path('select-genero', views.select_genero, name="select-genero"),
+    # path('select-genero', views.select_genero, name="select-genero"),
     path('agregar-perfil', views.agregar_perfil, name="agregar-perfil"),
     # Path de User
     path('user/', include('user.urls')),

@@ -20,8 +20,8 @@ def suscripcion_1(request):
 def suscripcion_2(request):
     return render(request, "core/suscripcion_2.html")
 
-def select_genero(request):
-    return render(request, "core/select_genero.html")
+# def select_genero(request):
+#     return render(request, "user/select_genero.html")
 
 def agregar_perfil(request):
     return render(request, "core/agregar_perfiles.html")

@@ -6,13 +6,18 @@ from django.http import JsonResponse
 # Create your views here.
 
 
+def select_genero(request):
+    return render(request, "user/select_genero.html")
+
 def ubication_create_view(request):
     ubication_form = UbicationModelForm()
     if request.method == 'POST':
         ubication_form = UbicationModelForm(request.POST)
         if ubication_form.is_valid():
             ubication_form.save()
-            # return redirect('core/selectgenero')
+            current_user = request.user
+            print(current_user)
+            return redirect("select_genero")
     return render(request, 'user/suscription_2.html', {'ubication_form': ubication_form})
 
 
@@ -23,8 +28,8 @@ def ubication_update_view(request, pk):
         ubication_form = UbicationModelForm(request.POST, instance=ubication)
         if ubication_form.is_valid():
             ubication_form.save()
-            return redirect('core/select-genero', pk=pk)
-    return render(request, 'core/select-genero', {'ubication_form': ubication_form})
+            return redirect('select-genero', pk=pk)
+    return render(request, 'user/suscription_2.html', {'ubication_form': ubication_form})
 
 
 # AJAX
@@ -47,7 +52,7 @@ def load_cities(request):
 def registration(request, *args, **kwargs):
     user_form = UserModelForm(request.POST or None)
     credit_card_form = CreditCardModelForm(request.POST or None)
-    if request.method =="POST" and user_form.is_valid() and credit_card_form.is_valid():
+    if request.method == "POST" and user_form.is_valid() and credit_card_form.is_valid():
         data_user = user_form.cleaned_data
         data_credit_card = credit_card_form.cleaned_data
         User.objects.create(**data_user)
@@ -64,5 +69,5 @@ def registration(request, *args, **kwargs):
     #         # Do some stuff
     #         # obj.save()
     #         # Suponemos que todo esta OK, redireccionamos
-    return render(request, "user/suscription_1.html", {'user_form':user_form,
+    return render(request, "user/suscription_1.html", {'user_form': user_form,
                                                        'card_form': credit_card_form})
