@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, CreditCard, City, Country, Ubication
+from .models import User, CreditCard, City, Country, Ubication, Perfil
 # Register your models here.
 
 
@@ -26,9 +26,12 @@ class CountryAdmin(admin.ModelAdmin):
 class UbicationAdmin(admin.ModelAdmin):
     list_display = ('city', 'country')
 
+class PerfilAdmin(admin.ModelAdmin):
+    list_display = ('id_perfil',)
 
 admin.site.register(User, UserAdmin)
 admin.site.register(CreditCard, CreditCardAdmin)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(City, CityAdmin)
 admin.site.register(Ubication, UbicationAdmin)
+admin.site.register(Perfil, PerfilAdmin)

@@ -8,7 +8,7 @@ def home(request):
     return render(request, "core/home.html")
 
 def select_genero(request):
-    return render(request, "user/select_genero.html")
+    return redirect("select-genero/")
 
 
 def agregar_perfil(request):

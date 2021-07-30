@@ -11,10 +11,12 @@
             
                 <p><br></p>
                 <h5>Crea tu cuenta, solo debes escribir tu email, contraseña, crear un usuario y configurar tu tarjeta de credito y </h5>
-                
+                <br>
                 <div id="input" class="col-md-12 text-center">
-
+                    {{user_form.email.errors}}
                     {{user_form.email}}
+                    <p></p>
+                    {{user_form.password.errors}}
                     {{user_form.password}}
                     
                     <h3 class="config">Configura tu Usuario</h3>

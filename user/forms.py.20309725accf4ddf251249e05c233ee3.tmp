@@ -131,15 +131,15 @@ class UbicationModelForm(forms.ModelForm):
 
 class PerfilModelForm(forms.ModelForm):
     name1 = forms.CharField(required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'Nombre de Perfil 1'}), max_length=50)
-    name2 = forms.CharField(required=False, widget=forms.TextInput(
-        attrs={'placeholder': 'Nombre de Perfil 2'}), max_length=50)
-    name3 = forms.CharField(required=False, widget=forms.TextInput(
-        attrs={'placeholder': 'Nombre de Perfil 3'}), max_length=50)
-    name4 = forms.CharField(required=False, widget=forms.TextInput(
-        attrs={'placeholder': 'Nombre de Perfil 4'}), max_length=50)
-    name5 = forms.CharField(required=False, widget=forms.TextInput(
-        attrs={'placeholder': 'Nombre de Perfil 5'}), max_length=50)
+        attrs={'placeholder': 'Nombre de Perfil 1'}), min_length=3, max_length=50)
+    name2 = forms.CharField(required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Nombre de Perfil 2'}), min_length=3, max_length=50)
+    name3 = forms.CharField(required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Nombre de Perfil 3'}), min_length=3, max_length=50)
+    name4 = forms.CharField(required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Nombre de Perfil 4'}), min_length=3, max_length=50)
+    name5 = forms.CharField(required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Nombre de Perfil 5'}), min_length=3, max_length=50)
     
 
     class Meta:
@@ -156,7 +156,11 @@ class PerfilModelForm(forms.ModelForm):
         data = self.cleaned_data.get('name1')
         wrong_characters = {'@','-', '?', '`', '˜', '#', '%', 'ˆ', '&', '*', ',', '{', '}', '[', ']', '|', '¿', '¡', '(', ')', '=', '/', '+', '.'}
         data_as_string = str(data)
-        if any([data_as_string.startswith(special_character) for special_character in wrong_characters]):
+        if len(data) < 3:
+            raise forms.ValidationError(
+                "El nombre es muy corto, debe ser mayor a 3 caracteres")
+            return data
+        elif any([data_as_string.startswith(special_character) for special_character in wrong_characters]):
             raise forms.ValidationError("Nombre de Perfil no puede empezar con caracteres especiales tales como: @-?`˜#%ˆ&*,{}[]|¿¡()=/+.")
         return data
 
@@ -164,7 +168,11 @@ class PerfilModelForm(forms.ModelForm):
         data = self.cleaned_data.get('name2')
         wrong_characters = {'@','-', '?', '`', '˜', '#', '%', 'ˆ', '&', '*', ',', '{', '}', '[', ']', '|', '¿', '¡', '(', ')', '=', '/', '+', '.'}
         data_as_string = str(data)
-        if any([data_as_string.startswith(special_character) for special_character in wrong_characters]):
+        if len(data) < 3:
+            raise forms.ValidationError(
+                "El nombre es muy corto, debe ser mayor a 3 caracteres")
+            return data
+        elif any([data_as_string.startswith(special_character) for special_character in wrong_characters]):
             raise forms.ValidationError("Nombre de Perfil no puede empezar con caracteres especiales tales como: @-?`˜#%ˆ&*,{}[]|¿¡()=/+.")
         return data
 
@@ -172,7 +180,11 @@ class PerfilModelForm(forms.ModelForm):
         data = self.cleaned_data.get('name3')
         wrong_characters = {'@','-', '?', '`', '˜', '#', '%', 'ˆ', '&', '*', ',', '{', '}', '[', ']', '|', '¿', '¡', '(', ')', '=', '/', '+', '.'}
         data_as_string = str(data)
-        if any([data_as_string.startswith(special_character) for special_character in wrong_characters]):
+        if len(data) < 3:
+            raise forms.ValidationError(
+                "El nombre es muy corto, debe ser mayor a 3 caracteres")
+            return data
+        elif any([data_as_string.startswith(special_character) for special_character in wrong_characters]):
             raise forms.ValidationError("Nombre de Perfil no puede empezar con caracteres especiales tales como: @-?`˜#%ˆ&*,{}[]|¿¡()=/+.")
         return data
 
@@ -180,7 +192,11 @@ class PerfilModelForm(forms.ModelForm):
         data = self.cleaned_data.get('name4')
         wrong_characters = {'@','-', '?', '`', '˜', '#', '%', 'ˆ', '&', '*', ',', '{', '}', '[', ']', '|', '¿', '¡', '(', ')', '=', '/', '+', '.'}
         data_as_string = str(data)
-        if any([data_as_string.startswith(special_character) for special_character in wrong_characters]):
+        if len(data) < 3:
+            raise forms.ValidationError(
+                "El nombre es muy corto, debe ser mayor a 3 caracteres")
+            return data
+        elif any([data_as_string.startswith(special_character) for special_character in wrong_characters]):
             raise forms.ValidationError("Nombre de Perfil no puede empezar con caracteres especiales tales como: @-?`˜#%ˆ&*,{}[]|¿¡()=/+.")
         return data
 
@@ -188,6 +204,10 @@ class PerfilModelForm(forms.ModelForm):
         data = self.cleaned_data.get('name5')
         wrong_characters = {'@','-', '?', '`', '˜', '#', '%', 'ˆ', '&', '*', ',', '{', '}', '[', ']', '|', '¿', '¡', '(', ')', '=', '/', '+', '.'}
         data_as_string = str(data)
-        if any([data_as_string.startswith(special_character) for special_character in wrong_characters]):
+        if len(data) < 3:
+            raise forms.ValidationError(
+                "El nombre es muy corto, debe ser mayor a 3 caracteres")
+            return data
+        elif any([data_as_string.startswith(special_character) for special_character in wrong_characters]):
             raise forms.ValidationError("Nombre de Perfil no puede empezar con caracteres especiales tales como: @-?`˜#%ˆ&*,{}[]|¿¡()=/+.")
         return data

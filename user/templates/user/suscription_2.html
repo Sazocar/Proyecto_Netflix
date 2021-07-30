@@ -27,10 +27,8 @@
             <form method="post" id="personForm" data-cities-url="{% url 'ajax_load_cities' %}">
                 {% csrf_token %}    
             {{ ubication_form.as_table }}
-            <div class="col-md-12 text-center">
-                    <button type="submit" id="iniciar_membresia" class="btn btn-secondary btn-lg">INICIAR MEMBRESIA</button>
-                </div>
-            </form>
+            
+            
 
             <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
             <script>
@@ -60,7 +58,7 @@
             </script>
 
 
-                {% comment %} <h3>Tenemos el plan ideal para ti</h3>
+                <h3>Tenemos el plan ideal para ti</h3>
                 <div class="box_container">
 
                     <p class="box_info1">GOLD</p>
@@ -186,7 +184,7 @@
                 <div class="col-md-12 text-center">
                     <button type="submit" id="iniciar_membresia" class="btn btn-secondary btn-lg">INICIAR MEMBRESIA</button>
                 </div>
-            </form> {% endcomment %}
+            </form>
         </div>
     
 </body>

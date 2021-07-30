@@ -90,3 +90,20 @@ class Ubication(models.Model):
 
     def __str__(self):
         return self.city
+
+
+class Perfil(models.Model):
+    id_perfil = models.AutoField(verbose_name="Id Perfil", primary_key=True)
+    name1 = models.CharField(verbose_name="Nombre Perfil 1", max_length=50, null = False)
+    name2 = models.CharField(verbose_name="Nombre Perfil 2", max_length=50, null = True)
+    name3 = models.CharField(verbose_name="Nombre Perfil 3", max_length=50, null = True)
+    name4 = models.CharField(verbose_name="Nombre Perfil 4", max_length=50, null = True)
+    name5 = models.CharField(verbose_name="Nombre Perfil 5 ", max_length=50, null = True)
+
+    class Meta:
+        verbose_name = "perfil"
+        verbose_name_plural = "Perfiles"
+        ordering = ['id_perfil']
+
+    def __str__(self):
+        return self.name1

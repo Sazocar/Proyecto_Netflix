@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>¿Quienes usarán Netflix</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'core/css/agregar_perfiles.css' %}">
+
+</head>
+<body>
+
+    <header>
+        <div class="col-md-12">
+            <img class="center-block" id="main_logo" src="{% static 'core/img/logo.png' %}" alt="Netflix Logo">
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h1>¿Quienes usarán Netflix?</h1>
+
+        <form action="." method="POST" id="step_one" class="suscripcion">
+            {% csrf_token %}
+
+            <div class="col-md-12 text-center input_container">
+                <br>
+                {{perfil_form.name1.errors}}
+                {{perfil_form.name1}}
+                {{perfil_form.name2.errors}}
+                {{perfil_form.name2}}
+                {{perfil_form.name3.errors}}
+                {{perfil_form.name3}}
+                {{perfil_form.name4.errors}}
+                {{perfil_form.name4}}
+                {{perfil_form.name5.errors}}
+                {{perfil_form.name5}}
+            </div>
+
+        
+            <div class="col-md-12 text-center">
+                <button type="submit" id="boton_continuar" class="btn btn-secondary btn-lg">CONTINUAR</button>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>
