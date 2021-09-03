@@ -80,8 +80,8 @@ class UserModelForm(forms.ModelForm):
 class CreditCardModelForm(forms.ModelForm):
     id_credit_card = forms.CharField(required=True, widget=forms.TextInput(
         attrs={'placeholder': 'Número de Tarjeta'}), min_length=13, max_length=13)
-    credit_card_date = forms.DateField(input_formats=["%m/%y"], required=True, widget=forms.TextInput(
-        attrs={'placeholder': 'Fecha de Vencimiento (MM/AA)'}))
+    credit_card_date = forms.DateField(input_formats=["%m/%d/%Y"], required=True, widget=forms.TextInput(
+        attrs={'placeholder': 'Fecha de Vencimiento (MM/DD/AA)'}))
     safe_code = forms.CharField(required=True, widget=forms.TextInput(
         attrs={'placeholder': 'Código de Seguridad'}), min_length=3, max_length=3)
 
