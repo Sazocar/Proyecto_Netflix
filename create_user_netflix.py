@@ -10,7 +10,7 @@ class CreateNewUser(unittest.TestCase):
         self.driver = webdriver.Chrome(executable_path='./chromedriver')
         driver = self.driver
         driver.maximize_window()
-        driver.get('http://127.0.0.1:8000/user/plan/')
+        driver.get('http://127.0.0.1:8000/user')
 
     def test_create_new_user(self):
         driver = self.driver
@@ -86,16 +86,24 @@ class CreateNewUser(unittest.TestCase):
 
         country = Select(self.driver.find_element_by_id('id_country'))
         list_countries = [option.text for option in country.options]
-        country.select_by_index(random.randint(1,len(list_countries)))
+        country.select_by_index(random.randint(1,len(list_countries)-1))
         sleep(1)
         
         city = Select(self.driver.find_element_by_id('id_city'))
         list_cities = [option.text for option in city.options]
-        city.select_by_index(random.randint(1, len(list_cities)))
-        sleep(4)
+        city.select_by_index(random.randint(1, len(list_cities)-1))
+        sleep(1)
 
         print(list_countries)
         print(list_cities)
+
+        plan = list(self.driver.find_elements_by_class_name('label_container'))
+        plan[random.randint(0, len(plan)-1)].click()
+        sleep(1)
+
+        submit_button = self.driver.find_element_by_id('iniciar_membresia')
+        submit_button.click()
+        sleep(3)
 
     def tearDown(self):
         self.driver.quit()
