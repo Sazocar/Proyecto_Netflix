@@ -103,7 +103,32 @@ class CreateNewUser(unittest.TestCase):
 
         submit_button = self.driver.find_element_by_id('iniciar_membresia')
         submit_button.click()
-        sleep(3)
+
+        users_profiles_quantity = random.randint(0, 5)
+
+        print(users_profiles_quantity)
+
+        for i in range(users_profiles_quantity):
+            profile = driver.find_element_by_name(f'name{i+1}')
+            profile.send_keys(ApiMockData.username)
+            print(ApiMockData.username)
+            sleep(1)
+
+        submit_button = driver.find_element_by_id('boton_continuar')
+        submit_button.click()
+       
+        for i in range(5):
+            row = random.randint(2, 4)
+            genre = random.randint(1, 3)
+            print(row, genre)
+            liked_genre = driver.find_element_by_xpath(f'/html/body/div/div[{row}]/div/label[{genre}]/span/img')
+            liked_genre.click()
+            sleep(1)
+
+        input('Press Enter to continue...')
+        submit_button = driver.find_element_by_id('boton_continuar')
+        submit_button.click()
+        sleep(1)
 
     def tearDown(self):
         self.driver.quit()
